@@ -1,28 +1,28 @@
-public class Rectangulo extends Figura implements Comparatorio<Rectangulo>{
+public class Triangulo extends Figura implements Comparatorio<Triangulo>{
     private double base;
     private double altura;
-    private double lados = 4;
+    private double lados = 3;
 
-    public Rectangulo(double pBase, double pAltura){
+
+    public Triangulo(double pBase, double pAltura){
         base = pBase;
         altura = pAltura;
     }
 
     public double calcularArea(){
-        return base*altura;
+        return base* altura / 2;
     }
 
     // IMPLEMENTAR EL METODO DE COMPARAR
 
-    public int compareTo(Rectangulo rectPorComparar){
-        double areaPorComparar = rectPorComparar.calcularArea();
+    public int compareTo(Triangulo triPorCompararTriangulo){
+        double areaPorComparar = triPorCompararTriangulo.calcularArea();
         double miArea = this.calcularArea();
-
         if(miArea == areaPorComparar){
-            if(this.lados == rectPorComparar.devolverLados()){
+            if(this.lados == triPorCompararTriangulo.devolverLados()){
                 return 0;
             }
-            else if(this.lados > rectPorComparar.devolverLados()){
+            else if(this.lados > triPorCompararTriangulo.devolverLados()){
                 return 2;
             }
             else{
@@ -30,10 +30,10 @@ public class Rectangulo extends Figura implements Comparatorio<Rectangulo>{
             }
         }
         else if(miArea > areaPorComparar){
-            if(this.lados == rectPorComparar.devolverLados()){
+            if(this.lados == triPorCompararTriangulo.devolverLados()){
                 return 1;
             }
-            else if(this.lados > rectPorComparar.devolverLados()){
+            else if(this.lados > triPorCompararTriangulo.devolverLados()){
                 return 3;
             }
             else{
@@ -41,10 +41,10 @@ public class Rectangulo extends Figura implements Comparatorio<Rectangulo>{
             }
         }
         else{
-            if(this.lados == rectPorComparar.devolverLados()){
+            if(this.lados == triPorCompararTriangulo.devolverLados()){
                 return -1;
             }
-            else if(this.lados > rectPorComparar.devolverLados()){
+            else if(this.lados > triPorCompararTriangulo.devolverLados()){
                 return 4;
             }
             else{
@@ -56,4 +56,5 @@ public class Rectangulo extends Figura implements Comparatorio<Rectangulo>{
     public double devolverLados(){
         return lados;
     }
+
 }
